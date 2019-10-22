@@ -1,0 +1,21 @@
+Running on host compute084.bc4.acrc.priv
+Time is Fri Oct 18 18:26:20 BST 2019
+Directory is /mnt/storage/home/md16024/intro-hpc-stencil
+Slurm job ID is 2566882
+
+This job runs on the following machines:
+compute084
+
+------------------------------------
+ runtime: 11.069722 s
+------------------------------------
+
+ Performance counter stats for './stencil 8000 8000 100':
+
+       29846260669      cycles                                                      
+       56581894383      instructions              #    1.90  insn per cycle         
+        2097993349      cache-references                                            
+        1272709668      cache-misses              #   60.663 % of all cache refs    
+
+      12.784709507 seconds time elapsed
+
