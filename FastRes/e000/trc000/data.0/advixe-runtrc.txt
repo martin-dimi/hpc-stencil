@@ -1,0 +1,10 @@
+
+=== Start: [2019/10/24 19:32:08] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /mnt/storage/home/md16024/intro-hpc-stencil/FastRes/e000/trc000/trc000.advixe 
+Application exit code: 0 
+Result file: /mnt/storage/home/md16024/intro-hpc-stencil/FastRes/e000/trc000/trc000.advixe 
+Analysis completed
+=== End: [2019/10/24 19:32:21] === 
