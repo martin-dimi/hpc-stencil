@@ -26,8 +26,11 @@ export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 # Run the executable
 # srun ./stencil 1024 1024 100
 # srun ./stencil 4096 4096 100
-#srun ./stencil 8000 8000 100
+# srun ./stencil 8000 8000 100
 
-srun perf stat -e cycles,instructions,cache-references,cache-misses -- ./stencil 8000 8000 100
+ srun perf stat -e cycles,instructions,cache-references,cache-misses -- ./stencil 1024 1024 100
+ srun perf stat -e cycles,instructions,cache-references,cache-misses -- ./stencil 4096 4096 100
+ srun perf stat -e cycles,instructions,cache-references,cache-misses -- ./stencil 8000 8000 100
+
 
 
