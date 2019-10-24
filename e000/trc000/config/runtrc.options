@@ -1,0 +1,14 @@
+-r
+/mnt/storage/home/md16024/intro-hpc-stencil/e000/trc000
+-quiet
+-cs-file
+/mnt/storage/home/md16024/intro-hpc-stencil/e000/callstacks.def
+--cs-mode=no-count-loops,no-count-flops,stack-stitching
+--target-loops=n
+--count-flops
+--benchmarks=dram,mcdram,cpu_cache,flop_peak
+--
+./stencil
+1024
+1024
+100
