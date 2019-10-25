@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2019/10/25 13:47:01</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>bandwidth-measurement-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>bandwidth-measurement-done</type>
+</msg>
+<msg id="4" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="5" tool="runtool">
+  <type>marker-file</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/AdvisorRes/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/stencil</arg>
+  <arg>2793</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/stencil</arg>
+  <arg>0x400000</arg>
+  <arg>0x60754f</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b0357c70000</arg>
+  <arg>0x2b0357e91147</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe6c1ea000</arg>
+  <arg>0x7ffe6c1eafdc</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libm.so.6</arg>
+  <arg>0x2b036c64b000</arg>
+  <arg>0x2b036c94c147</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libgcc_s.so.1</arg>
+  <arg>0x2b036c97d000</arg>
+  <arg>0x2b036cb923ff</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <arg>0x2b036cb93000</arg>
+  <arg>0x2b036cf531ff</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <arg>0x2b036cf54000</arg>
+  <arg>0x2b036d15712f</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:11 2019</timestamp>
+</msg>
+<msg id="15" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/stencil</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="16" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="17" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="18" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="19" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libgcc_s.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="20" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="21" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="22" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/stencil</arg>
+  <arg>2793</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Fri Oct 25 13:47:12 2019</timestamp>
+</msg>
+<msg id="23" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>0</arg>
+</msg>
+<msg id="24" tool="runtool">
+  <type>marker-file</type>
+  <arg>/mnt/storage/home/md16024/intro-hpc-stencil/AdvisorRes/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="25" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="26" tool="runtool">
+  <type>log-end</type>
+  <arg>2019/10/25 13:47:15</arg>
+</msg>
+
+</log>
+

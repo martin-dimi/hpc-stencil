@@ -1,47 +1,47 @@
-Running on host compute093.bc4.acrc.priv
-Time is Thu Oct 24 16:01:22 BST 2019
+Running on host compute084.bc4.acrc.priv
+Time is Fri Oct 25 15:14:50 BST 2019
 Directory is /mnt/storage/home/md16024/intro-hpc-stencil
-Slurm job ID is 2606243
+Slurm job ID is 2613708
 
 This job runs on the following machines:
-compute093
+compute084
 
 ------------------------------------
- runtime: 0.089669 s
+ runtime: 0.099711 s
 ------------------------------------
 
  Performance counter stats for './stencil 1024 1024 100':
 
-         345234871      cycles                                                      
-         294018788      instructions              #    0.85  insn per cycle         
-          30384972      cache-references                                            
-             16469      cache-misses              #    0.054 % of all cache refs    
+         283730813      cycles                                                      
+         320568056      instructions              #    1.13  insn per cycle         
+          28390032      cache-references                                            
+             13776      cache-misses              #    0.049 % of all cache refs    
 
-       0.119479469 seconds time elapsed
+       0.125727522 seconds time elapsed
 
 ------------------------------------
- runtime: 2.723458 s
+ runtime: 2.928059 s
 ------------------------------------
 
  Performance counter stats for './stencil 4096 4096 100':
 
-        9403877184      cycles                                                      
-        4222703340      instructions              #    0.45  insn per cycle         
-         539056325      cache-references                                            
-         318991142      cache-misses              #   59.176 % of all cache refs    
+        7839915369      cycles                                                      
+        4643998980      instructions              #    0.59  insn per cycle         
+         506799055      cache-references                                            
+         351503831      cache-misses              #   69.358 % of all cache refs    
 
-       3.046853859 seconds time elapsed
+       3.437070518 seconds time elapsed
 
 ------------------------------------
- runtime: 10.031402 s
+ runtime: 11.061219 s
 ------------------------------------
 
  Performance counter stats for './stencil 8000 8000 100':
 
-       35617814109      cycles                                                      
-       15839504485      instructions              #    0.44  insn per cycle         
-        2183824471      cache-references                                            
-        1177449013      cache-misses              #   53.917 % of all cache refs    
+       29911219257      cycles                                                      
+       17448570677      instructions              #    0.58  insn per cycle         
+        2070066588      cache-references                                            
+        1299139606      cache-misses              #   62.758 % of all cache refs    
 
-      11.310710592 seconds time elapsed
+      12.792959483 seconds time elapsed
 

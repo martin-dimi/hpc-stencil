@@ -7,7 +7,7 @@
 #SBATCH --account COMS30005
 #SBATCH --job-name stencil
 #SBATCH --time 00:15:00
-#SBATCH --output stencil.out
+#SBATCH --output advisor.out
 #SBATCH --exclusive
 
 # Print some information about the job
@@ -24,11 +24,4 @@ echo
 export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 # Run the executable
-# srun ./stencil 1024 1024 100
-# srun ./stencil 1024 1024 100
-# srun ./stencil 1024 1024 100
-# srun ./stencil 1024 1024 100
-# srun ./stencil 1024 1024 100
- srun ./stencil 1024 1024 100
- #srun ./stencil 4096 4096 100
- #srun ./stencil 8000 8000 100
+advixe-cl -collect roofline -project-dir AdvisorRes -- ./stencil 1024 1024 100
