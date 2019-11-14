@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <mpi.h>
 
 // Define output file name
 #define OUTPUT_FILE "stencil.pgm"
+
+#define MASTER 0
 
 void stencil(const int nx, const int ny, const int width, const int height,
              float* image, float* tmp_image);
@@ -15,11 +18,18 @@ double wtime(void);
 
 int main(int argc, char* argv[])
 {
+  MPI_Init(&argc, &argv);
+
   // Check usage
   if (argc != 4) {
     fprintf(stderr, "Usage: %s nx ny niters\n", argv[0]);
     exit(EXIT_FAILURE);
   }
+
+  // Init MPI
+  int nprocs, rank;
+  MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   // Initiliase problem dimensions from command line arguments
   int nx = atoi(argv[1]);
@@ -31,18 +41,37 @@ int main(int argc, char* argv[])
   int width = nx + 2;
   int height = ny + 2;
 
-  // Allocate the image
-  float* image = malloc(sizeof(float) * width * height);
-  float* tmp_image = malloc(sizeof(float) * width * height);
+  // Calculating the height of the slices
+  int sliceHeight = ny / nprocs + 2; // including padding
+ // if(rank == nprocs - 1) sliceHeight += height % nprocs;
+  int sliceSize = sliceHeight * width; // including padding
 
-  // Set the input image
-  init_image(nx, ny, width, height, image, tmp_image);
+  float* image;
+  float* temp_image;
+
+  if(rank == MASTER) {
+    // Allocate the image
+    image = malloc(sizeof(float) * width * height);
+    temp_image = malloc(sizeof(float) * width * height);
+
+    // Set the input image
+    init_image(nx, ny, width, height, image, temp_image);
+  }
+
+  float* image_slice = malloc(sizeof(float) * sliceSize);
+  float* image_temp_slice = malloc(sizeof(float) * sliceSize);
+
+  // Distribute the data
+  int payloadSliceSize = (sliceHeight - 2) * width;
+  MPI_Scatter(image + width, payloadSliceSize, MPI_FLOAT,
+ 	      image_slice + width, payloadSliceSize, MPI_FLOAT,
+	      MASTER, MPI_COMM_WORLD);
 
   // Call the stencil kernel
   double tic = wtime();
   for (int t = 0; t < niters; ++t) {
-    stencil(nx, ny, width, height, image, tmp_image);
-    stencil(nx, ny, width, height, tmp_image, image);
+    stencil(sliceHeight - 2, ny, width, width, image_slice, image_temp_slice);
+    stencil(sliceHeight - 2, ny, width, width, image_temp_slice, image_slice);
   }
   double toc = wtime();
 
@@ -51,9 +80,20 @@ int main(int argc, char* argv[])
   printf(" runtime: %lf s\n", toc - tic);
   printf("------------------------------------\n");
 
-  output_image(OUTPUT_FILE, nx, ny, width, height, image);
-  free(image);
-  free(tmp_image);
+  MPI_Gather(image_slice + width, payloadSliceSize, MPI_FLOAT,
+	     image + width, payloadSliceSize, MPI_FLOAT,
+	     MASTER, MPI_COMM_WORLD);
+
+  if(rank == MASTER) {
+    output_image(OUTPUT_FILE, nx, ny, width, height, image);
+    free(image);
+    free(temp_image);
+  }
+
+  free(image_slice);
+  free(image_temp_slice);
+
+  MPI_Finalize();
 }
 
 void stencil(const int nx, const int ny, const int width, const int height,
@@ -124,8 +164,8 @@ void output_image(const char* file_name, const int nx, const int ny,
   }
 
   // Output image, converting to numbers 0-255
-  for (int j = 1; j < ny + 1; ++j) {
-    for (int i = 1; i < nx + 1; ++i) {
+  for (int i = 1; i < nx + 1; ++i) {
+    for (int j = 1; j < ny + 1; ++j) {
       fputc((char)(255.0 * image[j + i * height] / maximum), fp);
     }
   }
