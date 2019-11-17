@@ -8,7 +8,7 @@
 
 #define MASTER 0
 
-void stencil(const int nx, const int ny, const int width, const int height,
+void stencil(const int nx, const int ny, const int width,
              float* image, float* tmp_image);
 void init_image(const int nx, const int ny, const int width, const int height,
                 float* image, float* tmp_image);
@@ -43,8 +43,10 @@ int main(int argc, char* argv[])
 
   // Calculating the height of the slices
   int sliceHeight = ny / nprocs + 2; // including padding
- // if(rank == nprocs - 1) sliceHeight += height % nprocs;
+//  if(rank == nprocs - 1) sliceHeight += height % nprocs;
   int sliceSize = sliceHeight * width; // including padding
+
+  printf("NY: %d, nprocs: %d, Leftover: %d\n", ny, nprocs, ny % nprocs);
 
   float* image;
   float* temp_image;
@@ -61,6 +63,12 @@ int main(int argc, char* argv[])
   float* image_slice = malloc(sizeof(float) * sliceSize);
   float* image_temp_slice = malloc(sizeof(float) * sliceSize);
 
+  int below = rank == (nprocs - 1) ? MPI_PROC_NULL : rank + 1;
+  int above = (rank == MASTER) ? MPI_PROC_NULL : rank - 1;
+  MPI_Status status;
+
+  printf("Rank: %d, below: %d, above: %d\n", rank, below, above);   
+
   // Distribute the data
   int payloadSliceSize = (sliceHeight - 2) * width;
   MPI_Scatter(image + width, payloadSliceSize, MPI_FLOAT,
@@ -70,8 +78,32 @@ int main(int argc, char* argv[])
   // Call the stencil kernel
   double tic = wtime();
   for (int t = 0; t < niters; ++t) {
-    stencil(sliceHeight - 2, ny, width, width, image_slice, image_temp_slice);
-    stencil(sliceHeight - 2, ny, width, width, image_temp_slice, image_slice);
+    MPI_Sendrecv(image_slice + width, width, MPI_FLOAT,
+                above, 0,
+                image_slice + width * (sliceHeight - 1), width, MPI_FLOAT,
+                below, 0,
+                MPI_COMM_WORLD, &status);    
+
+    MPI_Sendrecv(image_slice + width * (sliceHeight - 2), width, MPI_FLOAT,
+                below, 0,
+                image_slice, width, MPI_FLOAT,
+                above, 0,
+                MPI_COMM_WORLD, &status); 
+    stencil(sliceHeight - 2, nx, width, image_slice, image_temp_slice);
+
+    MPI_Sendrecv(image_temp_slice + width, width, MPI_FLOAT,
+                above, 0,
+                image_temp_slice + width * (sliceHeight - 1), width, MPI_FLOAT,
+                below, 0,
+                MPI_COMM_WORLD, &status);    
+
+    MPI_Sendrecv(image_temp_slice + width * (sliceHeight - 2), width, MPI_FLOAT,
+                below, 0,
+                image_temp_slice, width, MPI_FLOAT,
+                above, 0,
+                MPI_COMM_WORLD, &status); 
+
+    stencil(sliceHeight - 2, nx, width, image_temp_slice, image_slice);
   }
   double toc = wtime();
 
@@ -96,16 +128,16 @@ int main(int argc, char* argv[])
   MPI_Finalize();
 }
 
-void stencil(const int nx, const int ny, const int width, const int height,
+void stencil(const int nx, const int ny, const int width,
              float* restrict image, float* restrict tmp_image)
 {
   for (int i = 1; i < nx + 1; ++i) {
     for (int j = 1; j < ny + 1; ++j) {
-      tmp_image[j + i * height] = (image[j     + i       * height] * 6.0f
-                                    + image[j     + (i - 1) * height]
-                                    + image[j     + (i + 1) * height]
-                                    + image[j - 1 + i       * height]
-                                    + image[j + 1 + i       * height]) * 0.1f;
+      tmp_image[j + i * width] = (image[j     + i       * width] * 6.0f
+                                    + image[j     + (i - 1) * width]
+                                    + image[j     + (i + 1) * width]
+                                    + image[j - 1 + i       * width]
+                                    + image[j + 1 + i       * width]) * 0.1f;
         }
   }
 }
