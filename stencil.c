@@ -43,10 +43,8 @@ int main(int argc, char* argv[])
 
   // Calculating the height of the slices
   int sliceHeight = ny / nprocs + 2; // including padding
-//  if(rank == nprocs - 1) sliceHeight += height % nprocs;
+  if(rank == nprocs - 1) sliceHeight += ny % nprocs;
   int sliceSize = sliceHeight * width; // including padding
-
-  printf("NY: %d, nprocs: %d, Leftover: %d\n", ny, nprocs, ny % nprocs);
 
   float* image;
   float* temp_image;
@@ -67,13 +65,41 @@ int main(int argc, char* argv[])
   int above = (rank == MASTER) ? MPI_PROC_NULL : rank - 1;
   MPI_Status status;
 
-  printf("Rank: %d, below: %d, above: %d\n", rank, below, above);   
+  // printf("Rank: %d, below: %d, above: %d\n", rank, below, above);   
 
   // Distribute the data
-  int payloadSliceSize = (sliceHeight - 2) * width;
+  int payloadSliceSize = (ny / nprocs) * width;
   MPI_Scatter(image + width, payloadSliceSize, MPI_FLOAT,
  	      image_slice + width, payloadSliceSize, MPI_FLOAT,
 	      MASTER, MPI_COMM_WORLD);
+
+  
+  if(rank == nprocs - 1) {
+    int diff = ny % nprocs;
+    int imageOffset = sliceHeight - diff;
+
+    MPI_Recv(
+      image_slice + width,
+      sliceSize - 1 * width,
+      MPI_FLOAT,
+      MASTER,
+      0,
+      MPI_COMM_WORLD,
+      &status);
+  }
+
+  if(rank == MASTER) {
+    int diff = ny % nprocs;
+    int s = (ny / nprocs + ny % nprocs) * width;
+
+    MPI_Send(
+      image + (width * (height - 1)) - s,
+      s + width,
+      MPI_FLOAT,
+      nprocs - 1,
+      0,
+      MPI_COMM_WORLD);
+  }
 
   // Call the stencil kernel
   double tic = wtime();
@@ -105,22 +131,58 @@ int main(int argc, char* argv[])
 
     stencil(sliceHeight - 2, nx, width, image_temp_slice, image_slice);
   }
+
   double toc = wtime();
 
-  // Output
-  printf("------------------------------------\n");
-  printf(" runtime: %lf s\n", toc - tic);
-  printf("------------------------------------\n");
+  if(rank == MASTER ) {
+
+ 	 // Output
+ 	 printf("------------------------------------\n");
+ 	 printf(" runtime: %lf s\n", toc - tic);
+ 	 printf("------------------------------------\n");
+
+  }
 
   MPI_Gather(image_slice + width, payloadSliceSize, MPI_FLOAT,
 	     image + width, payloadSliceSize, MPI_FLOAT,
 	     MASTER, MPI_COMM_WORLD);
+
+  // printf("Gather complete!\n");
+
+  if(rank == nprocs - 1) {
+    int diff = ny % nprocs;
+    int imageOffset = sliceHeight - diff;
+
+    MPI_Send(
+      image_slice + width,
+      sliceSize - 2 * width,
+      MPI_FLOAT,
+      MASTER,
+      0,
+      MPI_COMM_WORLD);
+  }
+
+  if(rank == MASTER) {
+    int diff = ny % nprocs;
+    int s = (ny / nprocs + ny % nprocs) * width;
+
+    MPI_Recv(
+      image + (width * (height - 1)) - s,
+      s,
+      MPI_FLOAT,
+      nprocs - 1,
+      0,
+      MPI_COMM_WORLD,
+      &status);
+  }
 
   if(rank == MASTER) {
     output_image(OUTPUT_FILE, nx, ny, width, height, image);
     free(image);
     free(temp_image);
   }
+
+  MPI_Barrier(MPI_COMM_WORLD);
 
   free(image_slice);
   free(image_temp_slice);
