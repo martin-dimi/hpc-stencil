@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH --nodes 2
-#SBATCH --ntasks-per-node 28
+#SBATCH --nodes 2 
+#SBATCH --ntasks-per-node 28 
 #SBATCH --partition veryshort
 #SBATCH --reservation COMS30005
 #SBATCH --account COMS30005
 #SBATCH --job-name stencil
 #SBATCH --time 00:00:12
-#SBATCH --output stencil.out
+#SBATCH --output results1024/stencil_1024_2_28
 #SBATCH --exclusive
 
 # Print some information about the job
@@ -24,6 +24,6 @@ echo
 export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 # Run the executable
-# srun ./stencil 1024 1024 100
-  srun ./stencil 4096 4096 100
+  srun ./stencil 1024 1024 100
+#  srun ./stencil 4096 4096 100
 #  srun ./stencil 8000 8000 100

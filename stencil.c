@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
  	      image_slice + width, payloadSliceSize, MPI_FLOAT,
 	      MASTER, MPI_COMM_WORLD);
 
-  
+ if(nprocs != 1) {  
   if(rank == nprocs - 1) {
     int diff = ny % nprocs;
     int imageOffset = sliceHeight - diff;
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
       0,
       MPI_COMM_WORLD);
   }
-
+ }
   // Call the stencil kernel
   double tic = wtime();
   for (int t = 0; t < niters; ++t) {
@@ -148,7 +148,7 @@ int main(int argc, char* argv[])
 	     MASTER, MPI_COMM_WORLD);
 
   // printf("Gather complete!\n");
-
+ if(nprocs != 1) {
   if(rank == nprocs - 1) {
     int diff = ny % nprocs;
     int imageOffset = sliceHeight - diff;
@@ -175,7 +175,7 @@ int main(int argc, char* argv[])
       MPI_COMM_WORLD,
       &status);
   }
-
+ }
   if(rank == MASTER) {
     output_image(OUTPUT_FILE, nx, ny, width, height, image);
     free(image);
