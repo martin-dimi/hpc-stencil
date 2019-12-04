@@ -7,7 +7,7 @@
 #SBATCH --account COMS30005
 #SBATCH --job-name stencil
 #SBATCH --time 00:00:12
-#SBATCH --output results1024/stencil_1024__58
+#SBATCH --output results4096/stencil_4096__58
 
 # Print some information about the job
 echo "Running on host $(hostname)"
@@ -23,8 +23,13 @@ echo
 export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 
 # Run the executable
-srun -n 58 ./stencil 1024 1024 100
-srun -n 58 ./stencil 1024 1024 100
-srun -n 58 ./stencil 1024 1024 100
-srun -n 58 ./stencil 1024 1024 100
-srun -n 58 ./stencil 1024 1024 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100
+srun -n 58 ./stencil 4096 4096 100

@@ -1,0 +1,48 @@
+Running on host compute086.bc4.acrc.priv
+Time is Wed Dec  4 18:58:34 GMT 2019
+Directory is /mnt/storage/home/md16024/hpc-stencil
+Slurm job ID is 2849710
+
+This job runs on the following machines:
+compute[086-087]
+
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 3.383227 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.987180 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.945609 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.986877 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.959523 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.939082 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.958055 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.965554 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 3.162948 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 2.976555 s
+------------------------------------
