@@ -1,11 +1,23 @@
-Running on host compute088.bc4.acrc.priv
-Time is Tue Dec  3 21:07:51 GMT 2019
+Running on host compute086.bc4.acrc.priv
+Time is Wed Dec  4 00:25:10 GMT 2019
 Directory is /mnt/storage/home/md16024/hpc-stencil
-Slurm job ID is 2845382
+Slurm job ID is 2846088
 
 This job runs on the following machines:
-compute[088-089]
+compute[086-087]
 
 ------------------------------------
- runtime: 0.371111 s
+ runtime: 0.330007 s
+------------------------------------
+------------------------------------
+ runtime: 0.339101 s
+------------------------------------
+------------------------------------
+ runtime: 0.333516 s
+------------------------------------
+------------------------------------
+ runtime: 0.339087 s
+------------------------------------
+------------------------------------
+ runtime: 0.338632 s
 ------------------------------------
