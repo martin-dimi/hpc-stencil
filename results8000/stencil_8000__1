@@ -1,0 +1,38 @@
+Running on host compute087.bc4.acrc.priv
+Time is Wed Dec  4 21:05:39 GMT 2019
+Directory is /mnt/storage/home/md16024/hpc-stencil
+Slurm job ID is 2850373
+
+This job runs on the following machines:
+compute[087-088]
+
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 11.094175 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 11.167241 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 11.187465 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 11.157505 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 11.124612 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+srun: error: Unable to create job step: Job/step already completing or completed

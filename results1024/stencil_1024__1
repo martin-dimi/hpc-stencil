@@ -1,28 +1,48 @@
-Running on host compute085.bc4.acrc.priv
-Time is Wed Dec  4 18:08:07 GMT 2019
+Running on host compute084.bc4.acrc.priv
+Time is Wed Dec  4 20:50:26 GMT 2019
 Directory is /mnt/storage/home/md16024/hpc-stencil
-Slurm job ID is 2849520
+Slurm job ID is 2850313
 
 This job runs on the following machines:
-compute[085,087]
+compute[084-085]
 
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
- runtime: 0.097676 s
+ runtime: 0.079312 s
 ------------------------------------
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
- runtime: 0.098469 s
+ runtime: 0.080762 s
 ------------------------------------
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
- runtime: 0.102496 s
+ runtime: 0.095717 s
 ------------------------------------
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
- runtime: 0.099235 s
+ runtime: 0.096355 s
 ------------------------------------
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
- runtime: 0.096889 s
+ runtime: 0.095278 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 0.096570 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 0.096299 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 0.096660 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 0.095317 s
+------------------------------------
+srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
+------------------------------------
+ runtime: 0.095534 s
 ------------------------------------

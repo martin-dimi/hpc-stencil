@@ -1,0 +1,32 @@
+Running on host compute088.bc4.acrc.priv
+Time is Wed Dec  4 20:42:35 GMT 2019
+Directory is /mnt/storage/home/md16024/hpc-stencil
+Slurm job ID is 2850177
+
+This job runs on the following machines:
+compute[088-089]
+
+------------------------------------
+ runtime: 5.672208 s
+------------------------------------
+------------------------------------
+ runtime: 5.697874 s
+------------------------------------
+------------------------------------
+ runtime: 5.734758 s
+------------------------------------
+------------------------------------
+ runtime: 5.711198 s
+------------------------------------
+------------------------------------
+ runtime: 5.650357 s
+------------------------------------
+------------------------------------
+ runtime: 5.684821 s
+------------------------------------
+------------------------------------
+ runtime: 5.683436 s
+------------------------------------
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: error: Unable to create job step: Job/step already completing or completed
+srun: error: Unable to create job step: Job/step already completing or completed

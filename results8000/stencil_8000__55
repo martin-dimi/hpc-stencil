@@ -1,0 +1,53 @@
+Running on host compute089.bc4.acrc.priv
+Time is Wed Dec  4 21:34:58 GMT 2019
+Directory is /mnt/storage/home/md16024/hpc-stencil
+Slurm job ID is 2850427
+
+This job runs on the following machines:
+compute[089-090]
+
+------------------------------------
+ runtime: 1.225541 s
+------------------------------------
+------------------------------------
+ runtime: 0.803487 s
+------------------------------------
+------------------------------------
+ runtime: 0.877419 s
+------------------------------------
+------------------------------------
+ runtime: 0.821220 s
+------------------------------------
+------------------------------------
+ runtime: 0.847259 s
+------------------------------------
+------------------------------------
+ runtime: 0.886966 s
+------------------------------------
+------------------------------------
+ runtime: 0.828496 s
+------------------------------------
+------------------------------------
+ runtime: 0.835490 s
+------------------------------------
+------------------------------------
+ runtime: 0.811418 s
+------------------------------------
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 2850427.9 ON compute089 CANCELLED AT 2019-12-04T21:36:00 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 2850427 ON compute089 CANCELLED AT 2019-12-04T21:36:00 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+[27:compute089] unexpected disconnect completion event from [28:compute090]
+Fatal error in MPI_Sendrecv: Internal MPI error!, error stack:
+MPI_Sendrecv(259)........: MPI_Sendrecv(sbuf=0x2b2bb4007d18, scount=8002, MPI_FLOAT, dest=26, stag=0, rbuf=0x2b2bb4474ea0, rcount=8002, MPI_FLOAT, src=28, rtag=0, MPI_COMM_WORLD, status=0x7ffe86dfcc48) failed
+PMPIDI_CH3I_Progress(850): fail failed
+(unknown)(): Internal MPI error!
+In: PMI_Abort(654864, Fatal error in MPI_Sendrecv: Internal MPI error!, error stack:
+MPI_Sendrecv(259)........: MPI_Sendrecv(sbuf=0x2b2bb4007d18, scount=8002, MPI_FLOAT, dest=26, stag=0, rbuf=0x2b2bb4474ea0, rcount=8002, MPI_FLOAT, src=28, rtag=0, MPI_COMM_WORLD, status=0x7ffe86dfcc48) failed
+PMPIDI_CH3I_Progress(850): fail failed
+(unknown)(): Internal MPI error!)
+srun: forcing job termination
+srun: error: compute090: tasks 29-34,36-37,39-51,53-54: Terminated
+srun: error: compute089: tasks 0-26: Terminated
+srun: error: compute089: task 27: Exited with exit code 16
+srun: error: compute090: tasks 28,35,38,52: Terminated

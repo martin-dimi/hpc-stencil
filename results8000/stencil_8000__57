@@ -1,0 +1,18 @@
+Running on host compute089.bc4.acrc.priv
+Time is Wed Dec  4 21:36:32 GMT 2019
+Directory is /mnt/storage/home/md16024/hpc-stencil
+Slurm job ID is 2850429
+
+This job runs on the following machines:
+compute[089-090]
+
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
+srun: error: Unable to create job step: More processors requested than permitted
