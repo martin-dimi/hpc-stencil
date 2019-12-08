@@ -27,6 +27,12 @@ compute[089-090]
 ------------------------------------
  runtime: 6.150597 s
 ------------------------------------
+ runtime: 6.150597 s
+
+ runtime: 6.150597 s
+
+ runtime: 6.150597 s
+
 srun: error: Unable to create job step: Job/step already completing or completed
 srun: error: Unable to create job step: Job/step already completing or completed
 srun: error: Unable to create job step: Job/step already completing or completed

@@ -6,13 +6,9 @@ OUTPUT=$3
 
 echo "" > $OUTPUT
 
-i=1
-while [ $i -le 2 ]; do
-	j=1 
-	while [ $j -le 28 ]; do
-		path="${DIR}/${NAME}_${i}_${j}"
-		awk '/runtime/ {print $2}' $path >> $OUTPUT
-		let j=j+1
-	done
-	let i=i+1
+j=1 
+while [ $j -le 56 ]; do
+	path="${DIR}/${NAME}_${j}"
+	awk '/runtime/ {print $2}' $path >> $OUTPUT
+	let j=j+1
 done

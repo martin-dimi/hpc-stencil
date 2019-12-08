@@ -26,6 +26,11 @@ srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 ------------------------------------
  runtime: 11.124612 s
 ------------------------------------
+runtime: 11.124612 s
+runtime: 11.124612 s
+runtime: 11.124612 s
+runtime: 11.124612 s
+runtime: 11.124612 s
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1
 srun: error: Unable to create job step: Job/step already completing or completed
 srun: Warning: can't run 1 processes on 2 nodes, setting nnodes to 1

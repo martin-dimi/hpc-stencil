@@ -33,4 +33,7 @@ compute[086,089]
 ------------------------------------
  runtime: 4.020890 s
 ------------------------------------
+
+ runtime: 4.020890 s
+ 
 srun: error: Unable to create job step: Job/step already completing or completed
