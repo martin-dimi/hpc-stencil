@@ -1,0 +1,65 @@
+#!/bin/bash
+
+#SBATCH --nodes 2 
+#SBATCH --ntasks-per-node 2
+#SBATCH --cpus-per-task 14
+#SBATCH --exclusive
+#SBATCH --partition veryshort
+#SBATCH --reservation COMS30005
+#SBATCH --account COMS30005
+#SBATCH --job-name stencil
+#SBATCH --time 00:00:12
+#SBATCH --output stencil_omp.out
+
+# Print some information about the job
+echo "Running on host $(hostname)"
+echo "Time is $(date)"
+echo "Directory is $(pwd)"
+echo "Slurm job ID is $SLURM_JOB_ID"
+echo
+echo "This job runs on the following machines:"
+echo "$SLURM_JOB_NODELIST" | uniq
+echo
+
+# Enable using `srun` with Intel MPI
+# export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+
+export OMP_NUM_THREADS=14
+export OMP_PROC_BIND=close
+
+# Run the executable
+echo "1k"
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+mpirun -n 4 ./openmp 1024 1024 100
+
+echo "8k"
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+mpirun -n 4 ./openmp 8000 8000 100
+
+echo "4k"
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
+mpirun -n 4 ./openmp 4096 4096 100
