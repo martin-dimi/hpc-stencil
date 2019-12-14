@@ -8,7 +8,7 @@ echo "" > $OUTPUT
 
 j=1 
 while [ $j -le 56 ]; do
-	path="${DIR}/${NAME}_${j}"
+	ath="${DIR}/${NAME}_${i}_${j}"
 	awk '/runtime/ {print $2}' $path >> $OUTPUT
 	let j=j+1
 done
