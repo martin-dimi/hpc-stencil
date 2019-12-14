@@ -4,11 +4,11 @@ The objective of this report is to outline my research on serial and
 parallel optimisations (up to 56 cores using MPI and OpenMP standards). The table  
 below displays the different times of optimisations:
 
-| nx   | ny   | niters | Command                   | Serial Time on BCp4 | Serially Optimised  | Concurrently optimised |
-| ---- | ---- | ------ | ------------------------- | ------------------- | ------------------- | ---------------------- |
-| 1024 | 1024 | 100    | `./stencil 1024 1024 100` |           5.908341s |               0.09s |                 0.008s |
-| 4096 | 4096 | 100    | `./stencil 4096 4096 100` |         130.196475s |                  3s |                  0.13s |
-| 8000 | 8000 | 100    | `./stencil 8000 8000 100` |         561.118133s |                 11s |                     1s |
+| nx   | ny   | Command                   | Serial Time on BCp4 | Serially Optimised  | Concurrently optimised |
+| ---- | ---- | ------------------------- | ------------------- | ------------------- | ---------------------- |
+| 1024 | 1024 | `./stencil 1024 1024 100` |           5.908341s |               0.09s |                 0.008s |
+| 4096 | 4096 | `./stencil 4096 4096 100` |         130.196475s |                  3s |                  0.13s |
+| 8000 | 8000 | `./stencil 8000 8000 100` |         561.118133s |                 11s |                     1s |
 
 # 5-point stencil
 
