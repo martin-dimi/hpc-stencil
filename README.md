@@ -1,8 +1,10 @@
 # Goal
 
-The objective of this report is to outline my research on serial and  
-parallel optimisations (up to 56 cores using MPI and OpenMP standards). The table  
-below displays the different times of optimisations:
+The objective of this report is to outline my research on serial and parallel optimisations
+(up to 56 cores using MPI and OpenMP standards). For more information check report-serial.pdf  
+and report-mpi.pdf
+
+![Ouput image](procs.png "Speedup per core")
 
 | nx   | ny   | Command                   | Serial Time on BCp4 | Serially Optimised  | Concurrently optimised |
 | ---- | ---- | ------------------------- | ------------------- | ------------------- | ---------------------- |
