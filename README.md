@@ -1,8 +1,7 @@
 # Goal
 
 The objective of this report is to outline my research on serial and parallel optimisations
-(up to 56 cores using MPI and OpenMP standards). For more information check report-serial.pdf  
-and report-mpi.pdf
+(up to 56 cores using MPI and OpenMP standards). For more information check report-serial.pdf and report-mpi.pdf
 
 ![Ouput image](procs.png "Speedup per core")
 
